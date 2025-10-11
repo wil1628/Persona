@@ -14,6 +14,8 @@
             }
     </style>
 
+    <asp:HiddenField ID="editando" runat="server"/> 
+
     <div class="container d-flex flex-column mb-3 gap-2">
 
         <asp:TextBox ID="txtNombre" CssClass="form-control" placeholder="Nombre" runat="server"></asp:TextBox>
@@ -21,6 +23,7 @@
         <asp:TextBox ID="txtEdad" CssClass="form-control" placeholder="Edad" runat="server"></asp:TextBox>
 
         <asp:Button ID="btnMostrar" runat="server" CssClass="btn btn-primary btn-hover-move" Text="Guardar" OnClick="btn_guardar" />
+        <asp:Button ID="btnActualizar" runat="server" CssClass="btn btn-primary btn-hover-move" Text="Actualizar" OnClick="btnActualizar_Click" />
 
         <asp:Label ID="lblMensaje" runat="server" Text=""></asp:Label>
 
