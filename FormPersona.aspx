@@ -27,7 +27,7 @@
     </div>
     <asp:GridView ID="gvPersonas" CssClass="table table-striped table-hover table-success" runat="server" AutoGenerateColumns="False"
         DataSourceID="SqlDataSource1" DataKeyNames="ID" OnRowDeleting="gvPersonas_RowDeleting" 
-        OnRowEditing="gvPersonas_RowEditing" OnRowCancelingEdit="gvPersonas_RowCancelingEdit" OnRowUpdating="gvPersonas_RowUpdating">
+        OnRowEditing="gvPersonas_RowEditing" OnRowCancelingEdit="gvPersonas_RowCancelingEdit" OnRowUpdating="gvPersonas_RowUpdating" OnSelectedIndexChanged="gvPersonas_SelectedIndexChanged">
         <Columns>
             <asp:CommandField ShowSelectButton="True" ControlStyle-CssClass="btn btn-success" />
             <asp:CommandField ShowEditButton="True" ControlStyle-CssClass="btn btn-primary" />
