@@ -27,4 +27,43 @@ Public Class DataBaseHelper
         Return "Persona creada"
     End Function
 
+    Public Function delete(ByRef id As Integer) As String
+        Try
+            Dim sql As String = "DELETE FROM Persona WHERE ID = @Id"
+            Dim Parametros As New List(Of SqlParameter) From {
+                New SqlParameter("@Id", id)
+            }
+            Using connetion As New SqlConnection(ConectionString)
+                Using command As New SqlCommand(sql, connetion)
+                    command.Parameters.AddRange(Parametros.ToArray())
+                    connetion.Open()
+                    command.ExecuteNonQuery()
+                End Using
+            End Using
+        Catch ex As Exception
+        End Try
+        Return "Persona eliminada"
+    End Function
+
+    Public Function update(ByRef Persona As Persona) As String
+        Try
+            Dim sql As String = "UPDATE Persona SET Nombre = @Nombre, Apellido = @Apellido, Edad = @Edad WHERE ID = @Id"
+            Dim Parametros As New List(Of SqlParameter) From {
+                New SqlParameter("@Id", Persona.ID),
+                New SqlParameter("@Nombre", Persona.Nombre),
+                New SqlParameter("@Apellido", Persona.Apellido),
+                New SqlParameter("@Edad", Persona.Edad)
+            }
+            Using connetion As New SqlConnection(ConectionString)
+                Using command As New SqlCommand(sql, connetion)
+                    command.Parameters.AddRange(Parametros.ToArray())
+                    connetion.Open()
+                    command.ExecuteNonQuery()
+                End Using
+            End Using
+        Catch ex As Exception
+        End Try
+        Return "Persona actualizada"
+    End Function
+
 End Class

@@ -7,10 +7,11 @@
         .btn-hover-move {
             transition: transform 0.5s ease, box-shadow 0.2s;
         }
-        .btn-hover-move:hover {
-            transform: translateY(-4px) scale(1.04);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-        }
+
+            .btn-hover-move:hover {
+                transform: translateY(-4px) scale(1.04);
+                box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+            }
     </style>
 
     <div class="container d-flex flex-column mb-3 gap-2">
@@ -25,12 +26,16 @@
 
     </div>
     <asp:GridView ID="gvPersonas" CssClass="table table-striped table-hover table-success" runat="server" AutoGenerateColumns="False"
-        DataSourceID="SqlDataSource1" DataKeyNames="ID">
+        DataSourceID="SqlDataSource1" DataKeyNames="ID" OnRowDeleting="gvPersonas_RowDeleting" 
+        OnRowEditing="gvPersonas_RowEditing" OnRowCancelingEdit="gvPersonas_RowCancelingEdit" OnRowUpdating="gvPersonas_RowUpdating">
         <Columns>
-            <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+            <asp:CommandField ShowSelectButton="True" ControlStyle-CssClass="btn btn-success" />
+            <asp:CommandField ShowEditButton="True" ControlStyle-CssClass="btn btn-primary" />
+            <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="True" ReadOnly="True" SortExpression="ID" />
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
             <asp:BoundField DataField="Apellido" HeaderText="Apellido" SortExpression="Apellido" />
             <asp:BoundField DataField="Edad" HeaderText="Edad" SortExpression="Edad" />
+            <asp:CommandField ShowDeleteButton="True" ControlStyle-CssClass="btn btn-danger" />
         </Columns>
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:II46ConnectionString %>" ProviderName="<%$ ConnectionStrings:II46ConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Persona]"></asp:SqlDataSource>
