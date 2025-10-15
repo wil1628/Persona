@@ -13,7 +13,14 @@
         persona.Apellido = txtApellido.Text
         persona.Edad = txtEdad.Text
 
-        lblMensaje.Text = dbHelper.create(persona)
+        If dbHelper.create(persona) Then
+            lblMensaje.Text = "Persona creada"
+            txtNombre.Text = ""
+            txtApellido.Text = ""
+            txtEdad.Text = ""
+        Else
+            lblMensaje.Text = "Ocurrio un error"
+        End If
 
         gvPersonas.DataBind()
 

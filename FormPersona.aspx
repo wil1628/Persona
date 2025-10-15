@@ -34,7 +34,7 @@
         <Columns>
             <asp:CommandField ShowSelectButton="True" ControlStyle-CssClass="btn btn-success" />
             <asp:CommandField ShowEditButton="True" ControlStyle-CssClass="btn btn-primary" />
-            <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="True" ReadOnly="True" SortExpression="ID" />
+            <asp:BoundField DataField="ID" HeaderText="ID" Visible="False" ReadOnly="True" SortExpression="ID" />
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
             <asp:BoundField DataField="Apellido" HeaderText="Apellido" SortExpression="Apellido" />
             <asp:BoundField DataField="Edad" HeaderText="Edad" SortExpression="Edad" />
